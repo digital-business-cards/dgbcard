@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biglietto da visita digitale</title>
+  <meta name="description" content="Biglietto da visita digitale con contatti salvabili." />
+  <style>
+    :root {
+      --bg-1: #0f172a;
+      --bg-2: #111827;
+      --card: rgba(255, 255, 255, 0.12);
+      --card-border: rgba(255, 255, 255, 0.18);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.18), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 28px 28px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      border: 3px solid rgba(255,255,255,0.28);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.9rem;
+      line-height: 1.15;
+    }
+
+    .role {
+      margin: 8px 0 10px;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .bio {
+      margin: 0 auto;
+      max-width: 32ch;
+      color: #e2e8f0;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .content {
+      padding: 8px 22px 24px;
+    }
+
+    .section-title {
+      margin: 18px 6px 10px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #bfdbfe;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .icon {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      background: rgba(56, 189, 248, 0.16);
+    }
+
+    .label {
+      display: block;
+      font-size: 0.78rem;
+      color: #bfdbfe;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .value, .value a {
+      color: var(--text);
+      text-decoration: none;
+      word-break: break-word;
+      line-height: 1.45;
+    }
+
+    .value a:hover {
+      text-decoration: underline;
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      width: 100%;
+      border-radius: 16px;
+      padding: 15px 18px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .btn-primary {
+      color: #082f49;
+      background: linear-gradient(135deg, #7dd3fc, var(--accent));
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: linear-gradient(135deg, #22c55e, var(--accent-2));
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.20);
+    }
+
+    .btn-outline {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-size: 0.94rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        padding: 24px 20px 16px;
+      }
+
+      .content {
+        padding: 8px 16px 20px;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <section class="hero">
+      <div class="avatar">GG</div>
+      <h1>Gianmarco Guerriero</h1>
+      <p class="role">Ingegnere Informatico</p>
+      <p class="bio">
+        Progetti embedded, IoT, applicazioni mobile e sviluppo software.
+      </p>
+    </section>
+
+    <section class="content">
+      <div class="section-title">Contatti</div>
+
+      <div class="info-list">
+        <div class="info-item">
+          <div class="icon">✉️</div>
+          <div>
+            <span class="label">Email</span>
+            <div class="value"><a href="mailto:tuaemail@example.com">tuaemail@example.com</a></div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon">📱</div>
+          <div>
+            <span class="label">Telefono</span>
+            <div class="value"><a href="tel:+391234567890">+39 123 456 7890</a></div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon">🌐</div>
+          <div>
+            <span class="label">Sito / Portfolio</span>
+            <div class="value"><a href="https://tuosito.it" target="_blank" rel="noopener noreferrer">https://tuosito.it</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="saveContactBtn">Salva contatto</button>
+        <a class="btn btn-secondary" href="mailto:tuaemail@example.com?subject=Contatto%20dal%20biglietto%20digitale">Mandami una mail</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/tuoprofilo" target="_blank" rel="noopener noreferrer">Apri LinkedIn</a>
+      </div>
+
+      <div class="socials">
+        <a href="https://github.com/tuousername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/tuoprofilo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://instagram.com/tuoprofilo" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+
+      <p class="footer-note">Scansiona, apri, salva il contatto.</p>
+    </section>
+  </main>
+
+  <script>
+    const contact = {
+      firstName: 'Gianmarco',
+      lastName: 'Guerriero',
+      fullName: 'Gianmarco Guerriero',
+      organization: 'Freelance',
+      title: 'Ingegnere Informatico',
+      phone: '+391234567890',
+      email: 'tuaemail@example.com',
+      website: 'https://tuosito.it'
+    };
+
+    function buildVCard(data) {
+      return [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `N:${data.lastName};${data.firstName};;;`,
+        `FN:${data.fullName}`,
+        `ORG:${data.organization}`,
+        `TITLE:${data.title}`,
+        `TEL;TYPE=CELL:${data.phone}`,
+        `EMAIL;TYPE=INTERNET:${data.email}`,
+        `URL:${data.website}`,
+        'END:VCARD'
+      ].join('\n');
+    }
+
+    document.getElementById('saveContactBtn').addEventListener('click', () => {
+      const vcard = buildVCard(contact);
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'gianmarco-guerriero.vcf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
