@@ -100,6 +100,16 @@
       text-transform: uppercase;
     }
 
+    .role span {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.92em;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-transform: none;
+        color: var(--muted);
+    }
+
     .bio {
       margin: 0 auto;
       max-width: 35ch;
@@ -291,24 +301,138 @@
       font-style: italic;
     }
 
-    @media (max-width: 420px) {
-      .hero {
-        padding: 28px 20px 16px;
-      }
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
 
-      .content {
-        padding: 8px 16px 20px;
-      }
+  .card {
+    border-radius: 20px;
+  }
 
-      h1 {
-        font-size: 1.72rem;
-      }
+  .hero {
+    padding: 26px 18px 16px;
+  }
 
-      .avatar {
-        width: 96px;
-        height: 96px;
-      }
-    }
+  .content {
+    padding: 8px 14px 18px;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  h1 {
+    font-size: 1.65rem;
+    line-height: 1.18;
+  }
+
+  .role {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    max-width: 24ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    margin: 18px 2px 10px;
+  }
+
+  .info-list {
+    gap: 10px;
+  }
+
+  .info-item {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+    padding: 13px 14px;
+    border-radius: 16px;
+  }
+
+  .icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .value {
+    font-size: 0.95rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .btn {
+    padding: 13px 14px;
+    font-size: 0.92rem;
+  }
+
+  .socials {
+    gap: 8px;
+  }
+
+  .socials a {
+    padding: 8px 12px;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding: 10px;
+  }
+
+  .hero {
+    padding: 22px 14px 14px;
+  }
+
+  .content {
+    padding: 8px 10px 14px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .role {
+    font-size: 0.84rem;
+    max-width: 22ch;
+  }
+
+  .info-item {
+    grid-template-columns: 36px 1fr;
+    gap: 8px;
+    padding: 12px 12px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .value {
+    font-size: 0.9rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -316,7 +440,8 @@
     <section class="hero">
       <img class="avatar" src="assets/logo_azienda.jpg" alt="Logo aziendale" />
       <h1>Sabino Guerriero</h1>
-      <p class="role">Direttore commerciale Italia 
+      <p class="role">
+        Direttore commerciale Italia 
         <br>Vinosia di Luciano Ercolino</p>
     </section>
 
