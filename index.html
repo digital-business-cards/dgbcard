@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biglietto da visita Sabino Guerriero</title>
+  <title>Biglietto da visita digitale</title>
   <meta name="description" content="Biglietto da visita digitale con contatti salvabili." />
   <style>
     :root {
-      --bg-1: #0f172a;
-      --bg-2: #111827;
-      --card: rgba(255, 255, 255, 0.12);
-      --card-border: rgba(255, 255, 255, 0.18);
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --accent: #38bdf8;
-      --accent-2: #22c55e;
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --bg-1: #3b0f1b;
+      --bg-2: #5c1a2d;
+      --bg-3: #1f0f12;
+      --card: rgba(250, 245, 236, 0.96);
+      --card-border: rgba(122, 40, 61, 0.18);
+      --text: #2a1a16;
+      --muted: #6b5a52;
+      --accent: #7a283d;
+      --accent-2: #a67c52;
+      --accent-soft: #efe4d3;
+      --shadow: 0 24px 60px rgba(24, 8, 12, 0.28);
       --radius: 24px;
     }
 
@@ -27,137 +29,199 @@
       margin: 0;
       padding: 0;
       min-height: 100%;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Segoe UI", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.18), transparent 30%),
-        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        radial-gradient(circle at top left, rgba(255, 220, 180, 0.10), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(166, 124, 82, 0.16), transparent 28%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
     }
 
     body {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 28px;
     }
 
     .card {
       width: 100%;
-      max-width: 460px;
+      max-width: 470px;
       background: var(--card);
       border: 1px solid var(--card-border);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 7px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
     }
 
     .hero {
-      padding: 28px 28px 18px;
+      padding: 34px 30px 20px;
       text-align: center;
       position: relative;
     }
 
     .avatar {
-      width: 96px;
-      height: 96px;
+      width: 104px;
+      height: 104px;
       border-radius: 50%;
-      margin: 0 auto 18px;
-      display: grid;
-      place-items: center;
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      color: white;
-      background: linear-gradient(135deg, var(--accent), #2563eb);
-      border: 3px solid rgba(255,255,255,0.28);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      margin: 0 auto 20px;
+      display: block;
+      object-fit: contain;
+      padding: 10px;
+      background: #fffdf8;
+      border: 2px solid rgba(122, 40, 61, 0.16);
+      box-shadow: 0 12px 24px rgba(70, 24, 36, 0.14);
     }
 
     h1 {
       margin: 0;
-      font-size: 1.9rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
       line-height: 1.15;
+      color: #2b1717;
+      letter-spacing: 0.01em;
     }
 
     .role {
-      margin: 8px 0 10px;
-      font-size: 1rem;
-      color: var(--muted);
+      margin: 10px 0 12px;
+      font-size: 0.98rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .bio {
       margin: 0 auto;
-      max-width: 32ch;
-      color: #e2e8f0;
-      font-size: 0.96rem;
-      line-height: 1.5;
+      max-width: 35ch;
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.6;
     }
 
     .content {
-      padding: 8px 22px 24px;
+      padding: 8px 22px 26px;
     }
+.section-title {
+  margin: 22px 4px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  font-weight: 700;
+}
 
-    .section-title {
-      margin: 18px 6px 10px;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #bfdbfe;
-    }
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(122, 40, 61, 0.22),
+    rgba(166, 124, 82, 0.10)
+  );
+}
 
-    .info-list {
-      display: grid;
-      gap: 10px;
-    }
+.info-list {
+  display: grid;
+  gap: 14px;
+}
 
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+.info-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffdf9, #faf5ee);
+  border: 1px solid rgba(122, 40, 61, 0.10);
+  box-shadow: 0 8px 18px rgba(55, 25, 20, 0.06);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
 
-    .icon {
-      flex: 0 0 34px;
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      font-size: 16px;
-      background: rgba(56, 189, 248, 0.16);
-    }
+.info-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+}
 
-    .label {
-      display: block;
-      font-size: 0.78rem;
-      color: #bfdbfe;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+.info-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(55, 25, 20, 0.10);
+  border-color: rgba(122, 40, 61, 0.18);
+}
 
-    .value, .value a {
-      color: var(--text);
-      text-decoration: none;
-      word-break: break-word;
-      line-height: 1.45;
-    }
+.icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #f3e8d8;
+  color: var(--accent);
+  border: 1px solid rgba(122, 40, 61, 0.10);
+  flex-shrink: 0;
+}
 
-    .value a:hover {
-      text-decoration: underline;
-    }
+.icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
 
+.info-text {
+  min-width: 0;
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+}
+
+.value {
+  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.value strong,
+.value a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.value a:hover {
+  color: var(--accent);
+}
     .actions {
       display: grid;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     .btn {
@@ -166,7 +230,7 @@
       width: 100%;
       border-radius: 16px;
       padding: 15px 18px;
-      font-size: 0.98rem;
+      font-size: 0.97rem;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
@@ -179,25 +243,25 @@
 
     .btn:hover {
       transform: translateY(-1px);
-      opacity: 0.96;
+      opacity: 0.98;
     }
 
     .btn-primary {
-      color: #082f49;
-      background: linear-gradient(135deg, #7dd3fc, var(--accent));
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
+      color: #fffaf5;
+      background: linear-gradient(135deg, #6b2033, var(--accent));
+      box-shadow: 0 12px 26px rgba(122, 40, 61, 0.20);
     }
 
     .btn-secondary {
-      color: white;
-      background: linear-gradient(135deg, #22c55e, var(--accent-2));
-      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.20);
+      color: #2f2115;
+      background:  #d8c0a0;
+      box-shadow: 0 12px 26px rgba(166, 124, 82, 0.20);
     }
 
     .btn-outline {
-      color: var(--text);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--accent);
+      background: transparent;
+      border: 1px solid rgba(122, 40, 61, 0.20);
     }
 
     .socials {
@@ -210,12 +274,13 @@
 
     .socials a {
       text-decoration: none;
-      color: var(--text);
+      color: var(--accent);
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      font-size: 0.94rem;
+      background: #fffaf4;
+      border: 1px solid rgba(122, 40, 61, 0.12);
+      font-size: 0.92rem;
+      font-weight: 600;
     }
 
     .footer-note {
@@ -223,11 +288,12 @@
       margin-top: 16px;
       color: var(--muted);
       font-size: 0.84rem;
+      font-style: italic;
     }
 
     @media (max-width: 420px) {
       .hero {
-        padding: 24px 20px 16px;
+        padding: 28px 20px 16px;
       }
 
       .content {
@@ -235,7 +301,12 @@
       }
 
       h1 {
-        font-size: 1.65rem;
+        font-size: 1.72rem;
+      }
+
+      .avatar {
+        width: 96px;
+        height: 96px;
       }
     }
   </style>
@@ -243,39 +314,56 @@
 <body>
   <main class="card">
     <section class="hero">
-      <div class="avatar">SG</div>
+      <img class="avatar" src="assets/logo_azienda.jpg" alt="Logo aziendale" />
       <h1>Sabino Guerriero</h1>
-      <p class="role">Direttore commerciale Italia - Vinosia di Luciano Ercolino</p>
+      <p class="role">Direttore commerciale Italia 
+        <br>Vinosia di Luciano Ercolino</p>
     </section>
 
     <section class="content">
       <div class="section-title">Contatti</div>
 
-      <div class="info-list">
-        <div class="info-item">
-          <div class="icon">✉️</div>
-          <div>
-            <span class="label">Email</span>
-            <div class="value"><a href="mailto:sabino.guerriero@vinosia.it">sabino.guerriero@vinosia.it</a></div>
-          </div>
-        </div>
+<div class="info-list">
+  <a class="info-item" href="mailto:sabino.guerriero@vinosia.it">
+    <div class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+        <path d="M4 6h16v12H4z"></path>
+        <path d="M4 7l8 6 8-6"></path>
+      </svg>
+    </div>
+    <div class="info-text">
+      <span class="label">Email</span>
+      <div class="value">sabino.guerriero@vinosia.it</div>
+    </div>
+  </a>
 
-        <div class="info-item">
-          <div class="icon">📱</div>
-          <div>
-            <span class="label">Telefono</span>
-            <div class="value"><a href="tel:+393382325055">+39 338 232 5055</a></div>
-          </div>
-        </div>
+  <a class="info-item" href="tel:+393382325055">
+    <div class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+        <path d="M6.5 4.5h3l1.5 4-2 1.5a15 15 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 6.7 2 2 0 0 1 6.5 4.5z"></path>
+      </svg>
+    </div>
+    <div class="info-text">
+      <span class="label">Telefono</span>
+      <div class="value">+39 338 232 5055</div>
+    </div>
+  </a>
 
-        <div class="info-item">
-          <div class="icon">🌐</div>
-          <div>
-            <span class="label">Sito Aziendale</span>
-            <div class="value"><a href="https://vinosia.it" target="_blank" rel="noopener noreferrer">https://vinosia.it</a></div>
-          </div>
-        </div>
-      </div>
+  <a class="info-item" href="https://vinosia.it" target="_blank" rel="noopener noreferrer">
+    <div class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M3 12h18"></path>
+        <path d="M12 3a15 15 0 0 1 0 18"></path>
+        <path d="M12 3a15 15 0 0 0 0 18"></path>
+      </svg>
+    </div>
+    <div class="info-text">
+      <span class="label">Sito aziendale</span>
+      <div class="value">vinosia.it</div>
+    </div>
+  </a>
+</div>
 
       <div class="actions">
         <button class="btn btn-primary" id="saveContactBtn">Salva contatto</button>
@@ -286,8 +374,6 @@
         <a href="https://www.facebook.com/profile.php?id=100006419201562&locale=it_IT" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://www.instagram.com/sabinoguerriero" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
-
-      <p class="footer-note">Scansiona, apri, salva il contatto.</p>
     </section>
   </main>
 
