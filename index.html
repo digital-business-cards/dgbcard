@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biglietto da visita digitale</title>
+  <title>Biglietto da visita Sabino Guerriero</title>
   <meta name="description" content="Biglietto da visita digitale con contatti salvabili." />
   <style>
     :root {
@@ -243,12 +243,9 @@
 <body>
   <main class="card">
     <section class="hero">
-      <div class="avatar">GG</div>
-      <h1>Gianmarco Guerriero</h1>
-      <p class="role">Ingegnere Informatico</p>
-      <p class="bio">
-        Progetti embedded, IoT, applicazioni mobile e sviluppo software.
-      </p>
+      <div class="avatar">SG</div>
+      <h1>Sabino Guerriero</h1>
+      <p class="role">Direttore commerciale Italia - Vinosia di Luciano Ercolino</p>
     </section>
 
     <section class="content">
@@ -259,7 +256,7 @@
           <div class="icon">✉️</div>
           <div>
             <span class="label">Email</span>
-            <div class="value"><a href="mailto:tuaemail@example.com">tuaemail@example.com</a></div>
+            <div class="value"><a href="mailto:sabino.guerriero@vinosia.it">sabino.guerriero@vinosia.it</a></div>
           </div>
         </div>
 
@@ -267,29 +264,27 @@
           <div class="icon">📱</div>
           <div>
             <span class="label">Telefono</span>
-            <div class="value"><a href="tel:+391234567890">+39 123 456 7890</a></div>
+            <div class="value"><a href="tel:+393382325055">+39 338 232 5055</a></div>
           </div>
         </div>
 
         <div class="info-item">
           <div class="icon">🌐</div>
           <div>
-            <span class="label">Sito / Portfolio</span>
-            <div class="value"><a href="https://tuosito.it" target="_blank" rel="noopener noreferrer">https://tuosito.it</a></div>
+            <span class="label">Sito Aziendale</span>
+            <div class="value"><a href="https://vinosia.it" target="_blank" rel="noopener noreferrer">https://vinosia.it</a></div>
           </div>
         </div>
       </div>
 
       <div class="actions">
         <button class="btn btn-primary" id="saveContactBtn">Salva contatto</button>
-        <a class="btn btn-secondary" href="mailto:tuaemail@example.com?subject=Contatto%20dal%20biglietto%20digitale">Mandami una mail</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/tuoprofilo" target="_blank" rel="noopener noreferrer">Apri LinkedIn</a>
+        <a class="btn btn-secondary" href="mailto:sabino.guerriero@vinosia.it?subject=Contatto%20dal%20biglietto%20digitale">Mandami una mail</a>
       </div>
 
       <div class="socials">
-        <a href="https://github.com/tuousername" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/tuoprofilo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://instagram.com/tuoprofilo" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100006419201562&locale=it_IT" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/sabinoguerriero" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
 
       <p class="footer-note">Scansiona, apri, salva il contatto.</p>
@@ -298,14 +293,14 @@
 
   <script>
     const contact = {
-      firstName: 'Gianmarco',
+      firstName: 'Sabino',
       lastName: 'Guerriero',
-      fullName: 'Gianmarco Guerriero',
-      organization: 'Freelance',
-      title: 'Ingegnere Informatico',
-      phone: '+391234567890',
-      email: 'tuaemail@example.com',
-      website: 'https://tuosito.it'
+      fullName: 'Sabino Guerriero',
+      organization: 'Vinosia',
+      title: 'Direttore commerciale Italia',
+      phone: '+39 338 2325055',
+      email: 'sabino.guerriero@vinosia.it',
+      website: 'https://vinosia.it'
     };
 
     function buildVCard(data) {
@@ -329,7 +324,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'gianmarco-guerriero.vcf';
+      a.download = 'sabino-guerriero.vcf';
       document.body.appendChild(a);
       a.click();
       a.remove();
